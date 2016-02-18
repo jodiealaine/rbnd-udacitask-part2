@@ -22,5 +22,8 @@ module Listable
     value = "" if !priority
     return value
   end
+  def format_name site_name
+    site_name ? site_name : ""
+  end
 end
 
