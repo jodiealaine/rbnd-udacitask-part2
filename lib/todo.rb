@@ -8,7 +8,9 @@ class TodoItem
     add_priority options[:priority] if options.include? :priority
   end
   def details
-    format_description(@description) + "due: " +
+    format_type +
+    format_description(@description) + 
+    "due: " +
     format_date(end_date: @due) +
     format_priority(@priority)
   end

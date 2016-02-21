@@ -7,6 +7,9 @@ class LinkItem
     @site_name = options[:site_name]
   end
   def details
-    format_description(@description) + "site name: " + format_name(@site_name)
+  	format_type +
+    format_description(@description) + 
+    "site name: " + 
+    format_name(@site_name)
   end
 end

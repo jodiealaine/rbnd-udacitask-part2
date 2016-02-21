@@ -25,5 +25,8 @@ module Listable
   def format_name site_name
     site_name ? site_name : ""
   end
+  def format_type 
+    "#{self.class.to_s.gsub('Item','')}: "
+  end
 end
 
