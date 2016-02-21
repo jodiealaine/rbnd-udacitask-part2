@@ -15,6 +15,9 @@ class TodoItem
     (valid_priority_value? priority) ? @priority = priority : (raise UdaciListErrors::InvalidPriorityValue, "#{priority} is not a valid priority value.")
   end
 
+  def expired?
+    @due < Time.now
+  end
   private
   def valid_priority_value? priority
     valid_priority_values.include? priority

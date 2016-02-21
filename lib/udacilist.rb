@@ -21,7 +21,7 @@ class UdaciList
   end
   def all
     list_data = [] 
-    list_name = Formatador.display_line "\n[indent][bold][underline]#{@title.upcase}\n[/][/][/]"
+    Formatador.display_line "\n[indent][bold][underline]#{@title.upcase}\n[/][/][/]"
     @items.each do |item|
       list_data.push item.list_details(@items.index(item)+1)
     end
@@ -44,8 +44,5 @@ class UdaciList
   end
   def validItemTypes
     ["todo", "event", "link"]
-  end
-  def display_formats type
-
   end
 end

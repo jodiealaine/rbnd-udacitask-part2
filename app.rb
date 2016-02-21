@@ -33,6 +33,10 @@ new_list.add("event", "Life happens")
 new_list.add("link", "https://www.udacity.com/", site_name: "Udacity Homepage")
 new_list.add("link", "http://ruby-doc.org")
 
+# SHOULD ADD ITEMS WHERE THEIR END DATES HAVE EXPIRED
+# ----------------------------------------------------
+new_list.add("todo", "Go dancing", due: "yesterday")
+
 # SHOULD RETURN ERROR MESSAGES
 # ----------------------------
 # new_list.add("image", "http://ruby-doc.org") # Throws InvalidItemType error
@@ -48,4 +52,6 @@ new_list.all
 new_list.filter("event")
 new_list.filter("link")
 new_list.filter("todo")
+
+
 

@@ -12,7 +12,7 @@ module Listable
     	dates = "N/A" if !dates
     	return dates
     else	
-    	end_date ? "Due: #{end_date.strftime("%D")}" : "No due date"
+    	end_date ? (self.expired? ? "[red]Due: #{end_date.strftime("%D")}[/]" : "Due: #{end_date.strftime("%D")}") : "No due date"
     end
   end
   def format_priority priority
