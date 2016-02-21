@@ -1,4 +1,5 @@
 class UdaciList
+  include Listable
   attr_reader :title, :items
 
   def initialize(options={})
@@ -19,21 +20,22 @@ class UdaciList
     (index - 1) <= @items.length ?  @items.delete_at(index - 1) : (raise UdaciListErrors::IndexExceedsListSize, "#{index} exceeds the size of the list.")
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
-    @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+    list_data = [] 
+    list_name = Formatador.display_line "\n[indent][bold][underline]#{@title.upcase}\n[/][/][/]"
+    @items.each do |item|
+      list_data.push item.list_details(@items.index(item)+1)
     end
+    Formatador.display_table list_data, [:position, :type, :description, :date, :priority, :site_name]
   end
 
   def filter item_type
-    puts "-" * @title.length * 3
-    puts @title + " - Filtered By: #{item_type}"
-    puts "-" * @title.length * 3
-    @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}" if item.class.to_s.downcase.include? item_type
+    filtered_list_data = [] 
+    filtered_list_name = "\n[indent][bold][underline]#{@title.upcase} - Filtered By: #{item_type.capitalize}\n[/][/][/]"
+    @items.each do |item|
+      filtered_list_data.push item.list_details(@items.index(item)+1) if item.class.to_s.downcase.include? item_type
     end
+    Formatador.display_line filtered_list_name
+    Formatador.display_table filtered_list_data, format_display(item_type.downcase)
   end
 
   private
@@ -42,5 +44,8 @@ class UdaciList
   end
   def validItemTypes
     ["todo", "event", "link"]
+  end
+  def display_formats type
+
   end
 end

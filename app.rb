@@ -1,5 +1,6 @@
 require 'chronic'
 require 'colorize'
+require 'formatador'
 # Find a third gem of your choice and add it to your project
 require 'date'
 require_relative "lib/listable"
@@ -45,6 +46,6 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
-# new_list.filter("link")
-# new_list.filter("todo")
+new_list.filter("link")
+new_list.filter("todo")
 

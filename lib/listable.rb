@@ -7,18 +7,18 @@ module Listable
   	start_date = options[:start_date]
   	end_date = options[:end_date]
     if start_date 
-    	dates = start_date.strftime("%D") if start_date
-    	dates << " -- " + end_date.strftime("%D") if end_date
+    	dates = "[green]Start: #{start_date.strftime("%D")}[/]" if start_date
+    	dates << " -- [red]End: #{end_date.strftime("%D")}[/]" if end_date
     	dates = "N/A" if !dates
     	return dates
     else	
-    	end_date ? end_date.strftime("%D") : "No due date"
+    	end_date ? "Due: #{end_date.strftime("%D")}" : "No due date"
     end
   end
   def format_priority priority
-    value = " ⇧".colorize(:red) if priority == "high"
-    value = " ⇨".colorize(:yellow) if priority == "medium"
-    value = " ⇩".colorize(:white) if priority == "low"
+    value = "[red]⇧ [/]" if priority == "high"
+    value = "[white]⇨ [/]" if priority == "medium"
+    value = "[yellow]⇩ [/]" if priority == "low"
     value = "" if !priority
     return value
   end
@@ -26,7 +26,19 @@ module Listable
     site_name ? site_name : ""
   end
   def format_type 
-    "#{self.class.to_s.gsub('Item','')}: "
+    value = "[magenta]#{type}[/]" if type == "Todo"
+    value = "[green]#{type}[/]" if type == "Event"
+    value = "[blue]#{type}[/]" if type == "Link"
+    value
+  end
+  def format_display filter
+    format = [:position, :type, :description, :date, :priority] if filter == "todo"
+    format = [:position, :type, :description, :date] if filter == "event"
+    format = [:position, :type, :description, :site_name] if filter == "link"
+    format
+  end
+  def type
+    "#{self.class.to_s.gsub('Item','')}"
   end
 end
 
