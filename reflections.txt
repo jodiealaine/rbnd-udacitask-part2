@@ -1,0 +1,29 @@
+# What you added to Udacitask 2.0
+# -------------------------------------------------------
+1. What is the gem of your choice and how did you use it?
+
+Formatador: Used it to style the display in a more readable way. In particular:
+- The Title: Indent, bold and underline 
+- The Types: Color coded the different item types
+- The Priorities: I refactored the colorize code to use the html 'like' styling of formatador.
+- Column Headings: Changed the column headers when a user filters by an item type. Not displaying the redundant columns allows the user to see only the information they are interested in.
+
+2. Describe the 2 features you added to the project.
+  a) When a Todo item is past its due date the date is displayed in red
+  b) When an event has expired, and has not been deleted, the item is displayed in red.
+
+# REFLECTIONS
+# -------------------------------------------------------
+1. How long did you spend working on this project?
+4 Hours
+2. What was the most rewarding challenge you conquered?
+The refactoring of the initial solutions. 
+3. What two additional features did you build? Why?
+  a) When a Todo item is past its due date the date is displayed in red. 
+  - To make it clear if a Todo item had not been completed before the deadline.
+
+  b) When an event has expired, and has not been deleted, the item is displayed in red.
+  - To make it clear that an event is in the past.
+
+4. Where do you still have room to grow?
+	Ah so much more to grow... where do I start! I'd like to be more efficient with reading documentation. This, I know, is a constant place to grow.
