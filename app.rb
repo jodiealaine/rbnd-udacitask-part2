@@ -36,6 +36,7 @@ new_list.add("link", "http://ruby-doc.org")
 # SHOULD ADD ITEMS WHERE THEIR END DATES HAVE EXPIRED
 # ----------------------------------------------------
 new_list.add("todo", "Go dancing", due: "yesterday")
+new_list.add("event", "Vacation", start_date: "Dec 20", end_date: "Feb 20")
 
 # SHOULD RETURN ERROR MESSAGES
 # ----------------------------

@@ -10,4 +10,7 @@ class EventItem
   def list_details position
     {position: position, type: format_type, description: format_description(@description), date: format_date(start_date: @start_date, end_date: @end_date)}
   end
+  def expired?
+    @end_date < Date.today if @end_date 
+  end
 end
